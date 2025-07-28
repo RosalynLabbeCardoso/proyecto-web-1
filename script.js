@@ -16,3 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
         imagen.style.opacity = 1;
     }); 
 });
+function myFunction() {
+  const x = document.getElementById("desplegable");
+  if (x.className === "desplegable") {
+    x.classList.remove("desplegable");
+    x.style.maxHeight = "0px";
+  } else {
+    x.classList.add("desplegable");
+    x.style.maxHeight = "300px";
+  }
+}

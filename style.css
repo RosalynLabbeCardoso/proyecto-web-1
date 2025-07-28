@@ -18,14 +18,19 @@ img {
     background: linear-gradient(90deg,rgba(0, 43, 255, 1) 0%, rgba(144, 0, 255, 1) 15%, rgba(255, 0, 208, 1) 35%, rgba(255, 30, 0, 1) 50%, rgba(255, 115, 0, 1) 62%, rgba(255, 255, 0, 1) 78%, rgba(34, 255, 0, 1) 87%, rgba(0, 255, 238, 1) 98%);;
     padding: 2rem;
     font-size: large;
-    z-index: 10;
+    z-index: 10; /*posicion en el eje z (3D)*/
     position: relative;/*en todas las paginas con poco contenido, en las que tienen mucho
     position fixed para que quede siempre visible*/
     width: 100%;
     top:0;
-    /*z-index: 20;posicion en el eje z (3D)*/
 }
-#header ul {
+nav {
+    width: 100%;
+    display: flex;
+    gap: 5%;
+    justify-content: flex-end;
+}
+/* #header ul {
     display: flex;
     text-align: left;
     gap: 1.1rem;
@@ -34,23 +39,59 @@ img {
     padding: 0;
     justify-content: end;
     align-items: end;
-}
+} */
 
 #header a {
     color: white;
     text-shadow: 1px 1px 2px black ;
     text-decoration: none;
-    transition: all cubic-bezier(1,0,0,1) .3s;
+    transition: all .2s ease;
     /*transition:text-decoration ease 2s;*/
     /*ver como se hace para que el wavy salga poco a poco*/
 }
-
-li:hover {
+a:hover {
     transform: scale(1.2);
-    text-decoration: underline;
-    text-decoration-style: wavy;
-    text-decoration-color: white;
-    text-decoration-thickness: 0.5px; 
+}
+#desplegable {
+    height: fit-content;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 1s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    text-align: center;
+}
+#header .icon {
+  display: none;
+  color: black;
+}
+@media (max-width: 600px) {
+  #header .navbar a:not(:last-child) {display: none;}
+  #header a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media (min-width: 600px) {
+    #galeria{max-width: 80%;}
+}
+
+@media (max-width: 600px) {
+    #galeria {max-width: 95%;}
+  #header.responsive {position: relative;}
+  #header.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  #header.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
 
 #footer {
@@ -353,7 +394,6 @@ button:hover {
     grid-auto-flow: dense;
     justify-content: center;
     margin: 40px auto;
-    max-width: 80%;
 }
 #galeria img{
     object-fit: cover;
