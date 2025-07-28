@@ -9,4 +9,10 @@ function loadComponent(id,file) {
 
 loadComponent("header", "header.html");
 loadComponent("footer", "footer.html");
-        
+
+document.addEventListener("DOMContentLoaded", () => {
+    const imagenesCargando = document.querySelectorAll("img");
+    imagenesCargando.forEach((imagen) => {
+        imagen.style.opacity = 1;
+    }); 
+});
